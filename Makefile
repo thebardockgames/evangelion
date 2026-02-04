@@ -55,7 +55,7 @@ DUMMY != mkdir -p $(ALL_DIRS)
 N64AS = tools/n64_gcc2/mips-nintendo-nu64-as
 N64ASFLAGS := -EB -mcpu=vr4300 -mips3 -Ibuild/ -I.
 AS = $(CROSS)as
-ASFLAGS := -march=vr4300 -mtune=vr4300 -mabi=32 -mips3 -Iinclude -I. -I$(BUILD_DIR)
+ASFLAGS := -mips3 -Iinclude -I. -I$(BUILD_DIR)
 
 DEFINES := -DTARGET_N64 -DF3DEX_GBI_2
 ifeq ($(NON_MATCHING),1)
@@ -107,7 +107,7 @@ $(BUILD_DIR)/src/code_13610.o: OPT_FLAGS = -O2
 # 	$(PYTHON) tools/str2hex.py $< > $(@:.o=.i)
 $(BUILD_DIR)/%.o: %.s $(SZP_FILES)
 	@printf "[ASM] $@\n"
-	$(V)$(CROSS)gcc -c -x assembler-with-cpp $(DEFINES) $(ASFLAGS) -o $@ $<
+	$(V)mips-linux-gnu-as -march=vr4300 -mabi=32 -I. -I$(BUILD_DIR) -o $@ $<
 
 # 	@$(CC_CHECK) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $(@:.i=.ii)
 $(BUILD_DIR)/%.i : %.c | $(SRC_BUILD_DIRS)

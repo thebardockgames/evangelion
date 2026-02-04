@@ -23,3 +23,28 @@
 .macro move a, b
     addu \a, \b, $zero
 .endm
+
+# Compatibility macros for spimdisasm directives
+.macro nonmatching label, size
+.endm
+
+.macro endlabel label
+.endm
+
+.macro dlabel label
+    .global \label
+    \label:
+.endm
+
+.macro enddlabel label
+.endm
+
+.macro alabel label
+    .global \label
+    \label:
+.endm
+
+.macro jlabel label
+    .global \label
+    \label:
+.endm

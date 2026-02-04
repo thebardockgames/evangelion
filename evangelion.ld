@@ -1024,7 +1024,7 @@ SECTIONS
 
     ovl5_ROM_START = __romPos;
     ovl5_VRAM = ADDR(.ovl5);
-    .ovl5 0x80025C00 : AT(ovl5_ROM_START) SUBALIGN(4)
+    .ovl5 0x80025C00 : AT(ovl5_ROM_START) SUBALIGN(16)
     {
         FILL(0x00000000);
         ovl5_TEXT_START = .;
@@ -1191,6 +1191,7 @@ SECTIONS
         build/asm/data/ovl5/ovl5_1.rodata.o(.rodata);
         build/asm/data/ovl5/ovl5_2.rodata.o(.rodata);
         build/asm/data/ovl5/ovl5_3.rodata.o(.rodata);
+        build/asm/data/ovl5/code_119C10.rodata.o(.rodata);
         build/asm/data/ovl5/code_11D1B0.rodata.o(.rodata);
         build/asm/ovl5/code_120B90.o(.rodata);
         build/asm/ovl5/code_1263F0.o(.rodata);
