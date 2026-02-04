@@ -44,7 +44,9 @@ INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097064);
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097124);
 
-INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097130);
+void func_80097130(void* arg0, s32 arg1) {
+    ((s32*)arg0)[1] = arg1;
+}
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097138);
 
