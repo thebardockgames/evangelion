@@ -1,0 +1,38 @@
+=== PROMPT PARA NUEVA SESIÓN ===
+
+Soy Bardock. Este es nuestro proyecto personal de decompilación de Neon Genesis Evangelion 64 para N64. 
+
+CONTEXTO:
+- Proyecto personal, solo tú (Kimi) y yo
+- Ya está configurado y compilando
+- Usamos sistema de trabajo híbrido: tú analizas/generas C, yo pruebo con make
+
+ESTADO ACTUAL:
+- Setup 100% completo (splat, GCC 2.7.2, binutils)
+- Build compila exitosamente (make funciona)
+- Matching: 98%+ (faltan detalles menores)
+- Problema conocido #1: GCC 2.7.2 reordena delay slots (poniendo instrucciones en el delay slot del jr cuando debería ser nop)
+- Problema conocido #2: Diferencias en sección de datos (offset 0x3E738)
+
+ARCHIVOS CLAVE QUE DEBES LEER PRIMERO:
+1. PROGRESS.md - Estado completo del proyecto y cómo continuar
+2. KIMI_CONTEXT.md - Tu "memoria" del proyecto (estructuras, funciones analizadas)
+3. WORKFLOW.md - Cómo trabajamos juntos (flujo iterativo)
+4. SESSION_LOG.md - Historial de sesiones
+5. WORKSPACE_func_800AA550.md - Análisis de primera función (falló por delay slot)
+
+PRIMEROS PASOS AHORA:
+1. Lee PROGRESS.md completo
+2. Lee FAST_MATCHING.md - técnica para verificar funciones individuales rápidamente
+3. Lee KIMI_CONTEXT.md para entender el estado
+4. Ejecuta: make clean && make && sha1sum -c evangelion.sha1
+5. Prueba el fast matching: python3 tools/compare_function.py 0x15150 88
+6. Reportame resultados y decidimos: ¿arreglamos datos? ¿o buscamos función más simple?
+
+IMPORTANTE:
+- El ROM no está en el repo (copyright). Debe estar en: evangelion.z64
+- Toolchain ya está instalado (verifica con: mips-n64-gcc --version)
+- Usamos INCLUDE_ASM para funciones problemáticas por ahora
+- No hay prisa, este es un proyecto personal sin deadlines
+
+¿Listo? Empieza leyendo PROGRESS.md y dime qué encuentras.
