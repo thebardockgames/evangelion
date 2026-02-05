@@ -36,6 +36,24 @@
 
 ---
 
+### 🎉 ¡LOGRO DESBLOQUEADO! - Más tarde en la sesión
+
+**PRIMERA FUNCIÓN CON MATCH EXITOSO**
+
+```bash
+$ python3 tools/compare_function.py 0x1D30 8
+[MATCH] Offset 0x001D30 (8 bytes) - PERFECT MATCH!
+```
+
+**Función**: `func_80097130`  
+**Tamaño**: 8 bytes  
+**Tipo**: Setter simple  
+**Código**: `((s32*)arg0)[1] = arg1;`
+
+**Lección clave**: Las funciones pequeñas sin delay slot complicado son ideales para empezar.
+
+---
+
 ## Plantilla para próximas sesiones
 
 ### Fecha: [YYYY-MM-DD]

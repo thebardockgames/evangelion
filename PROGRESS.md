@@ -143,7 +143,8 @@ sha1sum -c evangelion.sha1
 |---------|-----------|
 | `KIMI_CONTEXT.md` | Contexto global del proyecto |
 | `WORKFLOW.md` | Guía del sistema de trabajo híbrido |
-| `WORKSPACE_func_800AA550.md` | Análisis detallado de primera función |
+| `WORKSPACE_func_800AA550.md` | Análisis de primera función (delay slot issue) |
+| `WORKSPACE_func_80097130.md` | Análisis de primera función con MATCH ✅ |
 | `SETUP_WSL.md` | Instrucciones de setup para WSL |
 | `FIX_PATH.md` | Solución a problemas de PATH |
 | `macro.inc` | Macros de compatibilidad para assembly |
@@ -191,12 +192,30 @@ ASFLAGS := -mips3 -Iinclude -I. -I$(BUILD_DIR)
 
 ---
 
+## 🏆 Victorias
+
+### Primera Función con MATCH (2026-02-04)
+**Función**: `func_80097130`  
+**Archivo**: `src/code_1050.c`  
+**Tamaño**: 8 bytes  
+**Tipo**: Setter simple  
+**Código**: `((s32*)arg0)[1] = arg1;`
+
+```bash
+$ python3 tools/compare_function.py 0x1D30 8
+[MATCH] Offset 0x001D30 (8 bytes) - PERFECT MATCH!
+```
+
+**Lección**: Las funciones pequeñas sin delay slot complicado son ideales para empezar.
+
+---
+
 ## 📊 Estadísticas
 
 - **Funciones totales estimadas**: ~2000
-- **Funciones analizadas**: 1 (`func_800AA550`)
-- **Funciones decompiladas**: 0 (matching)
-- **Funciones en ASM**: 16 en `code_15150.c` + todas las demás
+- **Funciones analizadas**: 2 (`func_800AA550`, `func_80097130`)
+- **Funciones decompiladas con MATCH**: 1 ✅ (`func_80097130`)
+- **Funciones en ASM**: 15+ en `code_15150.c` + todas las demás
 - **Build**: ✅ Compila
 - **Matching**: ❌ 98%+ (faltan detalles en datos)
 

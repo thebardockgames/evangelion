@@ -1,12 +1,25 @@
 #include "common.h"
 
-INCLUDE_ASM("asm/nonmatchings/code_1050", func_80096450);
+void func_80096450(void) {
+    s32 i;
+    
+    i = 14;
+    while (i >= 0) {
+        i--;
+    }
+}
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_80096468);
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_800964BC);
 
-INCLUDE_ASM("asm/nonmatchings/code_1050", func_800964FC);
+s32 func_800964FC(s32 arg0) {
+    if (arg0 < 0) {
+        return -arg0;
+    }
+    return arg0;
+}
+// O simplemente: return (arg0 < 0) ? -arg0 : arg0;
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_80096510);
 
@@ -42,7 +55,10 @@ INCLUDE_ASM("asm/nonmatchings/code_1050", func_80096FB4);
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097064);
 
-INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097124);
+void func_80097124(void* arg0) {
+    ((s32*)arg0)[0] = 0;
+    ((s32*)arg0)[1] = 0;
+}
 
 void func_80097130(void* arg0, s32 arg1) {
     ((s32*)arg0)[1] = arg1;
@@ -50,7 +66,9 @@ void func_80097130(void* arg0, s32 arg1) {
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097138);
 
-INCLUDE_ASM("asm/nonmatchings/code_1050", func_80097144);
+void func_80097144(void* arg0, s32 arg1) {
+    *(s32*)arg0 = arg1;  // offset 0
+}
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_8009714C);
 
