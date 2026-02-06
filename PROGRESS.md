@@ -1,8 +1,8 @@
 # Progreso del Proyecto - Evangelion 64 Decompilation
 
 ## 📅 Última actualización
-**Fecha**: 2026-02-04  
-**Estado**: Setup completo, compilación funciona, matching en progreso
+**Fecha**: 2026-02-05  
+**Estado**: 985/1025 funciones hacen MATCH (96%). Solo quedan 40 funciones DIFF en ovl7
 
 ---
 
@@ -107,10 +107,53 @@ sha1sum -c evangelion.sha1
 
 ---
 
+## 🎉 Avances del Día (05 Feb 2026)
+
+### Herramientas Creadas
+1. **`tools/compare_function.py`** - Verificación rápida de funciones (5s vs 10min)
+2. **`tools/audit_matching.py`** - Auditoría global de todas las funciones
+3. **`tools/fix_ovl7_syms.py`** - Script para auto-arreglar símbolos de ovl7
+
+### Funciones con MATCH (5 totales)
+Todas en `src/code_1050.c`:
+| Función | Offset | Tamaño | Patrón Crítico |
+|---------|--------|--------|----------------|
+| `func_80097130` | 0x1D30 | 8 bytes | Setter simple |
+| `func_80097144` | 0x1D44 | 8 bytes | Setter simple |
+| `func_80097124` | 0x1D24 | 12 bytes | Array clear |
+| `func_800964FC` | 0x10FC | 20 bytes | `return abs(a0)` |
+| `func_80096450` | 0x1050 | 24 bytes | Delay loop `i=15` |
+
+### Lecciones Clave
+- **Delay Slot Rule**: Para funciones con `jr $ra` delay slots, usar `return abs(x)` en lugar de manual if/else
+- **Loop counts**: GCC 2.7.2 optimiza loops; el valor inicial puede diferir del esperado
+- **Pattern matching**: Es más fácil ver el assembly y escribir C que genere el mismo que hacerlo al revés
+
+### Problema de ovl7 Identificado
+- **40 funciones** en ovl7 (overlay 7) no hacen MATCH
+- **Causa**: Símbolos de datos (`D_80042224_ovl7`, etc.) no definidos
+- **Solución aplicada**: Script agregó 52 símbolos a `undefined_syms_all.txt`
+- **Estado**: Símbolos definidos ✅, pero funciones siguen con DIFF - investigar código C de ovl7
+
+### Métricas Actuales
+```
+[OK] MATCH:     985 funciones (96%)
+[XX] DIFF:      40 funciones (4%) - todas en ovl7
+[!!] NO OFFSET: 0 funciones
+[EE] ERROR:     0 funciones
+```
+
+---
+
 ## 🎯 Próximos Objetivos
 
-### Prioridad Alta
-1. [ ] **Resolver matching de datos**
+### Prioridad Alta (En Casa)
+1. [ ] **Investigar por qué ovl7 sigue con DIFF**
+   - Verificar si archivos C de ovl7 se están compilando
+   - Comparar assembly original vs generado byte por byte
+   - Archivo de trabajo: `WORKSPACE_FIX_OVL7.md`
+
+2. [ ] **Resolver matching de datos**
    - Analizar diferencias en offset 0x3E738
    - Verificar alineación en `asm/data/3E7B0.data.s`
    - Comparar con ROM original byte por byte
@@ -212,12 +255,12 @@ $ python3 tools/compare_function.py 0x1D30 8
 
 ## 📊 Estadísticas
 
-- **Funciones totales estimadas**: ~2000
-- **Funciones analizadas**: 2 (`func_800AA550`, `func_80097130`)
-- **Funciones decompiladas con MATCH**: 1 ✅ (`func_80097130`)
-- **Funciones en ASM**: 15+ en `code_15150.c` + todas las demás
+- **Funciones totales**: 1025
+- **Funciones con MATCH**: 985 ✅ (96%)
+- **Funciones con DIFF**: 40 ❌ (4%) - todas en ovl7
+- **Funciones decompiladas**: 5 (`code_1050.c`)
 - **Build**: ✅ Compila
-- **Matching**: ❌ 98%+ (faltan detalles en datos)
+- **Matching ROM**: ❌ (faltan 40 funciones de ovl7)
 
 ---
 

@@ -122,10 +122,10 @@ def main():
     print("-" * 70)
     print("RESUMEN")
     print("-" * 70)
-    print(f"✅ MATCH:     {len(results['match'])} funciones")
-    print(f"❌ DIFF:      {len(results['diff'])} funciones")
-    print(f"⚠️  NO OFFSET: {len(results['no_offset'])} funciones")
-    print(f"💥 ERROR:     {len(results['error'])} funciones")
+    print(f"[OK] MATCH:     {len(results['match'])} funciones")
+    print(f"[XX] DIFF:      {len(results['diff'])} funciones")
+    print(f"[!!] NO OFFSET: {len(results['no_offset'])} funciones")
+    print(f"[EE] ERROR:     {len(results['error'])} funciones")
     print()
     
     # Print DIFF functions (the problematic ones)
@@ -143,7 +143,7 @@ def main():
         print(f"FUNCIONES CON MATCH PERFECTO ({len(results['match'])} total)")
         print("-" * 70)
         for func in sorted(results['match'], key=lambda x: x['rom_offset'])[:20]:  # Show first 20
-            print(f"0x{func['rom_offset']:06X} | {func['name']:30s} | {func['size']:4d} bytes | ✅")
+            print(f"0x{func['rom_offset']:06X} | {func['name']:30s} | {func['size']:4d} bytes | [OK]")
         if len(results['match']) > 20:
             print(f"... y {len(results['match']) - 20} más")
         print()
@@ -163,12 +163,12 @@ def main():
         for func in sorted(results['match'], key=lambda x: x['rom_offset']):
             f.write(f"0x{func['rom_offset']:06X} | {func['name']:30s} | {func['size']:4d} bytes\n")
     
-    print("📄 Reporte guardado en: matching_audit.txt")
+    print("[FILE] Reporte guardado en: matching_audit.txt")
     print()
     
     # Return error code if there are differences
     if results['diff']:
-        print(f"⚠️  Hay {len(results['diff'])} funciones con diferencias.")
+        print(f"[!!] Hay {len(results['diff'])} funciones con diferencias.")
         print("   Estas pueden causar que el ROM no arranque.")
         return 1
     else:
