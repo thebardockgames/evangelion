@@ -3,7 +3,7 @@
 void func_80096450(void) {
     s32 i;
     
-    i = 14;
+    i = 15;
     while (i >= 0) {
         i--;
     }
@@ -13,11 +13,8 @@ INCLUDE_ASM("asm/nonmatchings/code_1050", func_80096468);
 
 INCLUDE_ASM("asm/nonmatchings/code_1050", func_800964BC);
 
-s32 func_800964FC(s32 arg0) {
-    if (arg0 < 0) {
-        return -arg0;
-    }
-    return arg0;
+u32 func_800964FC(s32 a0) {
+    return abs(a0);
 }
 // O simplemente: return (arg0 < 0) ? -arg0 : arg0;
 
