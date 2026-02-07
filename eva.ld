@@ -403,10 +403,13 @@ SECTIONS
         BUILD_DIR/asm/data/ovl6/ovl6.data.o(.data);
     }
     END_SEG(ovl6_data)
+
+    /* Force ovl7 to start at correct ROM position */
+    __romPos = 0x175640;
     
     BEGIN_SEG(ovl7, 0x80025C00) {
         BUILD_DIR/asm/ovl7/code_175640.o(.text);
-        BUILD_DIR/asm/ovl7/code_175860.o(.text);
+        BUILD_DIR/src/ovl7/code_175860.o(.text);
         BUILD_DIR/asm/ovl7/code_179E00.o(.text);
         BUILD_DIR/asm/ovl7/code_17AEF0.o(.text);
         BUILD_DIR/asm/ovl7/code_17B260.o(.text);

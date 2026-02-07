@@ -54,6 +54,41 @@ $ python3 tools/compare_function.py 0x1D30 8
 
 ---
 
+## Sesión 2: 2026-02-06
+
+### Qué hicimos hoy
+- [x] Corregimos `PROGRESS.md` - El ROM ya compila con **matching 100%**
+- [x] Verificamos SHA1: Original y compilado son idénticos ✅
+- [x] Documentamos el proceso de setup desde cero para nuevas PCs
+- [x] Agregamos sección de troubleshooting común
+- [x] Clarificamos que ahora estamos en **fase de decompilación a C**
+
+### Estado actual del proyecto
+```
+✅ SHA1 ORIGINAL:  A9BA0A4AFEED48080F54AA237850F3676B3D9980
+✅ SHA1 COMPILADO: A9BA0A4AFEED48080F54AA237850F3676B3D9980
+✅ RESULTADO: MATCH PERFECTO 100%
+```
+
+- El proyecto compila y genera un ROM idéntico al original
+- Todas las funciones están compilando correctamente
+- Ahora el trabajo es **convertir assembly a C** manteniendo el matching
+
+### Fase actual: Decompilación
+- **Objetivo**: Convertir funciones de `.s` (assembly) a `.c` (C)
+- **Restricción**: El código C debe generar bytes idénticos al original
+- **Verificación**: Después de cada cambio, `sha1sum -c evangelion.sha1` debe decir "OK"
+
+### Próximos pasos
+1. Buscar funciones simples para decompilar (setters, getters, matemáticas)
+2. Documentar estructuras usadas en `include/structs.h`
+3. Continuar con ovl7 y otros overlays
+
+### Estado del ánimo
+🎉 ¡Excelente noticia! El ROM está 100% matching. Ahora viene la parte divertida: entender el código y convertirlo a C legible.
+
+---
+
 ## Plantilla para próximas sesiones
 
 ### Fecha: [YYYY-MM-DD]

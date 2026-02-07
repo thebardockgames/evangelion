@@ -1,0 +1,86 @@
+#include "common.h"
+#include "evangelion_types.h"
+#include "segments.h"
+
+// RODATA 113490-113670
+
+String D_80068FB0_ovl3 = {105,94,124,109,90,124,111,97,108,47,80,337,282,18,0};
+String D_80068FD0_ovl3 = {325,223,66,288,82,275,69,299,242,18,0};
+String D_80068FE8_ovl3 = {310,183,85,138,46,82,187,331,171,18,0};
+String D_80069000_ovl3 = {54,47,54,17,1,57,69,299,242,70,112,97,64,78,54,65,45,18,0};
+String D_80069028_ovl3 = {255,226,69,139,328,63,70,1,243,219,217,322,65,45,69,47,336,18,0};
+String D_80069050_ovl3 = {40,38,41,43,305,297,16,252,134,191,236,194,329,207,0};
+String D_80069070_ovl3 = {25,336,337,282,72,81,59,65,26,0};
+String D_80069084_ovl3 = {25,44,44,17,16,153,129,45,65,45,18,1,16,193,264,59,336,26,0};
+String D_800690AC_ovl3 = {25,290,229,218,294,16,22,26,0};
+String D_800690C0_ovl3 = {25,220,186,157,290,229,74,63,1,16,172,173,102,104,107,117,63,135,236,56,79,22,26,0};
+String D_800690F0_ovl3 = {25,47,74,45,74,56,86,68,16,21,26,0};
+String D_80069108_ovl3 = {25,312,334,59,18,16,193,264,85,265,52,67,175,81,1,16,141,23,66,306,322,70,65,45,26,0};
+String D_8006913C_ovl3 = {25,258,336,17,1,16,305,268,66,51,83,63,45,45,86,59,65,26,0};
+String D_80069164_ovl3 = {25,290,229,16,22,22,26,0};
+
+String D_80069174_ovl3 = {246,30,193,264,16,101,95,92,121,0};
+String D_80069188_ovl3 = {335,16,16,308,0};
+
+// Padding?
+u32 D_80069194_ovl3[3] = {0,0,0,0};
+
+u32 D_800691A0_ovl3 = 0;
+u32 D_800691A4_ovl3 = 0;
+u32 D_800691A8_ovl3 = 0;
+u32 D_800691AC_ovl3 = 0;
+u8 D_800691B0_ovl3 = 1;
+
+void func_80043520_ovl3() {
+    func_800A3624(func_80036494_ovl3(0x102, 5, 0x17)->unkC, 128, 0x18C);
+}
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80043554_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_800436C0_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80043718_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80043BD8_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80043FD0_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_800445A4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80044950_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80044A40_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80044DA0_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80044DD4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80044DF8_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80045254_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80045298_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80045354_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_800453FC_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_800454E4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_8004557C_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_800456A8_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80045D14_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80046118_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_800462B4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_800468E4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80046E68_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_80047090_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000ECA30", func_8004A884_ovl3);

@@ -1024,7 +1024,7 @@ SECTIONS
 
     ovl5_ROM_START = __romPos;
     ovl5_VRAM = ADDR(.ovl5);
-    .ovl5 0x80025C00 : AT(ovl5_ROM_START) SUBALIGN(16)
+    .ovl5 0x80025C00 : AT(ovl5_ROM_START) SUBALIGN(4)
     {
         FILL(0x00000000);
         ovl5_TEXT_START = .;
@@ -1454,6 +1454,9 @@ SECTIONS
     __romPos = ALIGN(__romPos, 16);
     . = ALIGN(., 16);
 
+    /* Force ovl7 to correct ROM position */
+    __romPos = 0x175640;
+    
     ovl7_ROM_START = __romPos;
     ovl7_VRAM = ADDR(.ovl7);
     .ovl7 0x80025C00 : AT(ovl7_ROM_START) SUBALIGN(4)

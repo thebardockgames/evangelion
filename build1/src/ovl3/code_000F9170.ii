@@ -1,0 +1,139 @@
+#include "common.h"
+#include "evangelion_types.h"
+
+String D_80069280_ovl3 = {306,147,281,293,184,299,242,234,168,18,0};
+String D_80069298_ovl3 = {246,177,69,193,264,18,0};
+String D_800692A8_ovl3 = {193,264,336,1,103,93,113,123,124,108,73,552,183,144,195,18,0};
+String D_800692CC_ovl3 = {193,264,70,131,257,161,324,274,69,145,259,85,0};
+String D_800692E8_ovl3 = {205,270,286,221,55,82,284,328,85,202,61,18,0};
+String D_80069304_ovl3 = {54,47,78,17,16,164,328,65,37,42,113,89,24,121,109,18,0};
+String D_80069328_ovl3 = {74,52,66,169,252,319,190,16,22,0};
+String D_8006933C_ovl3 = {265,55,210,326,62,70,44,82,69,47,16,21,0};
+String D_80069358_ovl3 = {150,224,131,128,17,16,253,23,161,324,47,80,69,0};
+String D_80069374_ovl3 = {254,234,183,173,85,229,174,55,82,18,0};
+String D_8006938C_ovl3 = {25,338,243,55,82,339,340,70,65,45,18,1,16,341,81,58,74,46,17,16,150,224,131,128,26,0};
+String D_800693C0_ovl3 = {25,338,243,55,82,339,340,70,65,45,18,1,16,341,81,58,74,46,17,16,150,224,131,128,26,0};
+String D_800693F4_ovl3 = {25,305,191,236,66,133,50,82,1,16,146,249,268,85,262,248,54,74,55,26,0};
+String D_80069420_ovl3 = {25,305,191,236,66,133,50,82,1,16,146,249,268,85,262,248,54,74,55,26,0};
+String D_8006944C_ovl3 = {25,102,124,103,170,17,1,16,220,186,157,63,302,210,85,249,268,26,0};
+String D_80069474_ovl3 = {25,122,90,70,330,186,157,63,1,16,304,179,85,249,268,54,62,26,0};
+String D_8006949C_ovl3 = {25,320,263,197,70,250,160,69,205,260,17,204,225,17,1,16,216,328,69,132,166,63,254,229,54,74,56,86,26,0};
+String D_800694D8_ovl3 = {25,57,69,180,189,85,212,233,55,82,69,85,1,16,303,83,65,45,63,68,26,0};
+String D_80069504_ovl3 = {25,200,70,336,1,16,220,186,157,85,209,83,71,45,45,69,68,26,0};
+String D_8006952C_ovl3 = {278,305,252,69,263,328,48,336,18,0};
+String D_80069540_ovl3 = {115,103,108,123,124,119,90,113,121,73,336,18,0};
+String D_8006955C_ovl3 = {191,236,17,104,373,24,108,63,55,0};
+String D_80069570_ovl3 = {25,102,124,103,170,26,0};
+String D_80069580_ovl3 = {25,278,305,252,69,92,110,121,96,24,1,16,16,44,65,58,66,315,50,82,84,26,0};
+String D_800695B0_ovl3 = {25,48,86,71,60,62,68,16,22,26,0};
+String D_800695C8_ovl3 = {25,126,285,16,22,26,0};
+String D_800695D8_ovl3 = {25,342,46,71,45,45,64,343,344,79,26,0};
+String Unused1 = {246,32,193,264,16,119,116,92,121,0};
+String Unused2 = {335,16,16,308,0};
+String D_80069610_ovl3 = {25,240,263,144,195,26,0};
+String D_80069620_ovl3 = {25,173,347,159,51,56,26,0};
+String D_80069630_ovl3 = {25,311,295,66,437,92,110,121,96,24,338,135,16,22,26,0};
+String D_80069650_ovl3 = {25,65,86,63,55,60,62,16,22,26,0};
+String D_80069668_ovl3 = {25,116,104,60,58,16,22,26,0};
+String D_8006967C_ovl3 = {25,246,276,208,348,45,63,16,22,26,0};
+String D_80069694_ovl3 = {25,126,285,16,22,26,0};
+String D_800696A4_ovl3 = {25,70,341,49,16,22,26,0};
+String D_800696B4_ovl3 = {25,70,341,49,60,16,22,22,26,0};
+String D_800696C8_ovl3 = {25,344,84,44,44,44,44,44,44,44,336,26,0};
+
+u32 D_800696E4_ovl3[] = {
+    0x00430085,
+    0x08C9110D,
+    0x194F2193,
+    0x29D74ADF,
+    0x5B656C29,
+    0x7CAF8D33,
+    0x9DF90000,
+    0xA63BB77F,
+};
+
+u32 D_80069704_ovl3[] = {
+    0x71418181,
+    0x9203A285,
+    0xB2C5C347,
+    0xDBC9DC4D,
+    0xE513EDD9,
+    0xEE5DF723,
+    0xFFE9E512,
+    0xFFEFFFF9,
+};
+
+u32 D_80069724_ovl3[] = {
+    0x08430845,
+    0x088710C9,
+    0x10CB110D,
+    0x194F1951,
+    0x199321D5,
+    0x21D72219,
+    0x2A5D0000,
+    0x2A5D2A9F,
+};
+
+u32 D_80069744_ovl3[] = {
+    0x81C781C7,
+    0x8A079247,
+    0x9A47A289,
+    0xAAC9B309,
+    0xBB09C349,
+    0xCB8BD3CB,
+    0xDBCBE40B,
+    0xEC4BF48D,
+};
+
+u32 D_80069764_ovl3[] = {
+    0x508158C1,
+    0x61017143,
+    0x798381C5,
+    0x92059A45,
+    0xA287B2C7,
+    0xBB09C349,
+    0xD389DBCB,
+    0xF40BF48D,
+};
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_8004FC60_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_8004FD84_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_8004FFF4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800506AC_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800506E0_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80050B38_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80050E68_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80050F84_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800510A4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800510C8_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800512FC_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800514E4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80051614_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_8005196C_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80051D78_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80051EFC_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800520A4_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80052308_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80053168_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_80053F2C_ovl3);
+
+INCLUDE_ASM("asm/nonmatchings/ovl3/code_000F9170", func_800540FC_ovl3);

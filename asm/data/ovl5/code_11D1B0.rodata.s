@@ -492,7 +492,8 @@ enddlabel D_8005AF84_ovl5
 nonmatching D_8005AF88_ovl5
 
 dlabel D_8005AF88_ovl5
-    /* 14CD88 8005AF88 4018000000000000 */ .double 6
+    /* 14CD88 8005AF88 40180000 */ .word 0x40180000
+    /* 14CD8C 8005AF8C 00000000 */ .word 0x00000000
 enddlabel D_8005AF88_ovl5
 
 nonmatching D_8005AF90_ovl5

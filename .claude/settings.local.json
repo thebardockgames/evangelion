@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(wsl bash:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:hackmd.io)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(wsl mips-linux-gnu-readelf:*)",
+      "Bash(MSYS_NO_PATHCONV=1 wsl mips-linux-gnu-readelf:*)",
+      "Bash(\"D:\\\\Proyectos\\\\N64Recomp\\\\build\\\\Release\\\\N64Recomp.exe\" evangelion.toml)",
+      "Bash(python tools/find_cross_section_calls.py:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)"
+    ]
+  }
+}
