@@ -1,7 +1,7 @@
 # Neon Genesis Evangelion 64 Decompilation
 
 [![Build Status](https://img.shields.io/badge/build-WIP-yellow.svg)]()
-[![Matching Status](https://img.shields.io/badge/matching-98%25-green.svg)]()
+[![Matching Status](https://img.shields.io/badge/matching-100%25-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/license-None-red.svg)]()
 
 A work-in-progress decompilation of *Neon Genesis Evangelion* (1999) for the Nintendo 64. This is the only officially licensed anime game released for the N64 platform.
@@ -27,19 +27,20 @@ A work-in-progress decompilation of *Neon Genesis Evangelion* (1999) for the Nin
 ## 🏗️ Project Status
 
 ```
-Current State: Functional Build - Matching In Progress
+Current State: Functional Build - SHA1 Matching ✅
 ├── Setup:           ✅ Complete
 ├── Extraction:      ✅ Complete (splat)
 ├── Build System:    ✅ Complete (GCC 2.7.2 + modern binutils)
-├── Matching:        ⚠️  98%+ (data section differences)
-└── Decompilation:   🔄 In Progress (1 function analyzed)
+├── Matching:        ✅ Complete (100% SHA1 match)
+└── Decompilation:   🔄 In Progress (C code compilation working)
 ```
 
 ### What's Working
 - ✅ Full ROM extraction and analysis
 - ✅ Build system with authentic GCC 2.7.2 toolchain
-- ✅ Compilation to working ROM
+- ✅ Compilation to working ROM (matching SHA1)
 - ✅ Asset extraction (textures, models, audio)
+- ✅ **Asset conversion tools** (N64 textures ↔ PNG)
 - ✅ Symbol identification
 
 ### What's In Progress
@@ -91,6 +92,40 @@ A successful build will produce:
 
 ---
 
+## 🎨 Asset Tools
+
+The project includes tools for working with the game's image assets:
+
+### Viewing Textures
+
+Convert N64 textures (CI4/CI8/YAY0) to PNG format:
+
+```bash
+# Convert single image
+python tools/n64image_viewer.py assets/Images/D09S9A00.pal_554.320x240.ci8.yay0.bin
+
+# Convert all images (creates assets/Images_preview/)
+python tools/convert_all_images.py
+```
+
+Over **2,300 textures** have been converted and are viewable in `assets/Images_preview/`.
+
+### Modifying Textures
+
+To replace a game texture:
+
+1. **Edit the PNG** in `assets/Images_preview/`
+2. **Convert back to N64 format**:
+   ```bash
+   python tools/png_to_n64.py your_image.png output_name
+   ```
+3. **Ensure file size matches or is smaller** than the original (compressed YAY0 files must maintain their size)
+4. **Rebuild the ROM**: `make clean && make`
+
+⚠️ **Important**: The build system uses original compressed assets. Modified images must match the original file size or the ROM layout will break.
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -99,7 +134,9 @@ eva64/
 │   ├── nonmatchings/      # Functions not yet decompiled
 │   └── ...
 ├── assets/                # Extracted game assets (gitignored)
-│   ├── yay0/             # Compressed data
+│   ├── Images/           # Texture files (.ci4, .ci8, .yay0)
+│   ├── Images_preview/   # Converted PNG previews
+│   ├── Palettes/         # Color palettes (.pal)
 │   ├── Font/             # Font textures
 │   └── ...
 ├── include/               # Header files
@@ -113,6 +150,9 @@ eva64/
 │   └── *.c               # Individual translation units
 ├── tools/                 # Build tools
 │   ├── splat_ext/        # splat extensions
+│   ├── n64image_viewer.py    # Convert N64 textures to PNG
+│   ├── convert_all_images.py # Batch convert all textures
+│   ├── yay0_compress.py      # YAY0 compression tool
 │   └── ...
 ├── build/                 # Build artifacts (gitignored)
 ├── evangelion.yaml        # ROM segmentation config (splat)
@@ -197,12 +237,12 @@ This project is for educational and preservation purposes only.
 
 ```diff
 + Header:        100% (corrected by n64crc)
-+ Code:          ~98% (minor instruction ordering differences)
++ Code:          100% (matching)
 + Assets:        100% (extracted directly)
-- Data Section:  Investigating alignment differences
++ Data Section:  100% (matching)
 ```
 
-**Current SHA1**: `TBD` (work in progress)
+**Current SHA1**: `a9ba0a4afeed48080f54aa237850f3676b3d9980` ✅
 
 **Target SHA1**: `a9ba0a4afeed48080f54aa237850f3676b3d9980`
 
